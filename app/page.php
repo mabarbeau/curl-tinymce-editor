@@ -32,7 +32,10 @@ class Page
 
   public function push($id, $content)
   {
-    echo 'push';
+    foreach($this->page->find($id) as $e){
+      $e->innertext = $content;
+    }
+
   }
 
   public function output()
