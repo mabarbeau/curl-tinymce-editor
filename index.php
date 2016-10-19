@@ -14,7 +14,7 @@
 	  ],
 	  toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 	  toolbar2: 'print preview media | forecolor backcolor emoticons',
-	  image_advtab: true,	
+	  image_advtab: true,
 	  relative_urls: true,
 	  document_base_url: '//flh.fhwa.dot.gov/',
 	  content_css: [
@@ -23,32 +23,32 @@
 	  ]
 	});
 	</script>
-	
+
 	<style>
 		textarea{
 			height: 100%;
 		}
 	</style>
 	<base dir="https://flh.fhwa.dot.gov">
-	
+
 </head>
 <body>
-	
+
 <?php
-include('simple_html_dom.php');
-	
+include('vendor/simple_html_dom.php');
+
 $url='https://flh.fhwa.dot.gov';
 $id='content-wrap';
-		
+
 if (isset($_GET['url'])) {
 	$url= $_GET['url'];
-}	
+}
 if (isset($_GET['id'])) {
 	$id=$_GET['id'];
-}	
+}
 
-?>	
-	
+?>
+
 
 <form action="#" method="get">
 	<lable>URL</lable>
@@ -65,13 +65,13 @@ if (isset($_GET['id'])) {
 	foreach($html->find("div#" . $id) as $e)
 	echo $e->innertext . '<br>';
 ?>
-	
+
 	</textarea>
 	<input type='hidden' name="URL" value="<?php echo $url?>" placeholder='Enter URL here'>
 	<input type='hidden' name="ID" value='<?php echo $id?>' placeholder='ID'>
 	<input type="submit" value="Publish">
-</form>	
-	
-	
+</form>
+
+
 </body>
 </html>
