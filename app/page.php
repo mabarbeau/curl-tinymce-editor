@@ -45,15 +45,6 @@ class Page
 
   }
 
-  public function submit()
-  {
-    $myfile = fopen("submited/newfile.html", "w") or die("Unable to open file!");
-    $txt = $_POST['URL'] . '#' .  $_POST['ID'] . "\n";
-    fwrite($myfile, $txt);
-    fwrite($myfile, $_POST['code']);
-    fclose($myfile);
-  }
-
 }
 
 ?>
