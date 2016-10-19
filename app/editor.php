@@ -12,12 +12,15 @@
   <?php
   $page = new Page('https://flh.fhwa.dot.gov');
   $page->load($_SERVER['REQUEST_URI']);
+	// var_dump($_SERVER);
   ?>
 
-  <form action="submit.php" method="post">
+
+  <form action="#" method="post">
   	<textarea name='code'>
-      <?=$page->pull('#content-wrap');?>
+      <?=$page->output();?>
   	</textarea>
+		<input type='hidden' name="URL" value="<?=$_SERVER['REQUEST_URI']?>">
   	<input type="submit" value="Publish">
   </form>
 
