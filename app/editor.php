@@ -4,11 +4,7 @@
 	<script src="/js/tinymce/tinymce.min.js"></script>
 	<script src="/js/tinymce.config.js"></script>
 
-	<style>
-		textarea{
-			height: 100%;
-		}
-	</style>
+	<link rel="stylesheet" href="/css/style.css" media="screen" title="Editor">
 	<base dir="https://flh.fhwa.dot.gov">
 
 </head>
