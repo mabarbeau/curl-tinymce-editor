@@ -1,17 +1,27 @@
 <?php
-$url = $_POST['URL'];
+include_once('page.php');
 
-if(strpos($url, '.htm') == false) {
-  $url = $url . 'index.htm';
+$url = trim($_POST['URL'], '/');
+echo 'URL :' . $url . ':<hr>';
+
+if(strlen($url) === 0) {
+  $urlPath = 'index.htm';
+
+}elseif(strpos($url, '.htm') == false) {
+  $urlPath = $url . '/index.htm';
+
+}else{
+  $urlPath = $url;
+
 }
-$name = str_replace("/",".", $url);
 
-$trim = trim($name, '.');
-$path = "../submited/" . $trim;
-echo $path;
+$name = str_replace("/",".", $urlPath);
 
-$myfile = fopen($path, "w") or die("Unable to open file!");
-fwrite($myfile, $_POST['code']);
-fclose($myfile);
+$save = "../submited/" . $name;
+echo $save;
+
+$file = fopen($save, "w") or die("Unable to open file!");
+fwrite($file, $_POST['code']);
+fclose($file);
 
 ?>
