@@ -11,8 +11,7 @@
 <body>
   <?php
   $page = new Page('https://flh.fhwa.dot.gov');
-
-  $page->load('/');
+  $page->load($_SERVER['REQUEST_URI']);
   ?>
 
   <form action="submit.php" method="post">
