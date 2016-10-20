@@ -1,4 +1,5 @@
 <?php include_once('page.php'); ?>
+<?php include_once('file.php'); ?>
 <html>
 <head>
 	<script src="/js/tinymce/tinymce.min.js"></script>
@@ -10,9 +11,19 @@
 </head>
 <body>
   <?php
-  $page = new Page('https://flh.fhwa.dot.gov');
-  $page->load($_SERVER['REQUEST_URI']);
+	$file = new File($_SERVER['REQUEST_URI']);
+	$file->URL_rename();
+	$fullpath = $file->fullpath();
 
+	if(!file_exists($fullpath)){
+		//No local save download from server
+		$page = new Page('https://flh.fhwa.dot.gov');
+		$page->load($_SERVER['REQUEST_URI']);
+	}else{
+		//Load local file
+		$page = new Page($file->path);
+		$page->load($file->filename);
+	}
   ?>
 
 
@@ -21,7 +32,7 @@
       <?=$page->output();?>
   	</textarea>
 		<input type='hidden' name="URL" value="<?=$_SERVER['REQUEST_URI']?>">
-  	<input type="submit" value="Publish">
+		<input type="submit" value="Save">
   </form>
 
 </body>
