@@ -1,4 +1,5 @@
 <?php
+$alerts = array();
 
 switch($_SERVER['REQUEST_METHOD'])
 {
@@ -11,7 +12,7 @@ switch($_SERVER['REQUEST_METHOD'])
 
   default:
     if(isset($_COOKIE['saved'])){
-      echo 'Saved!';
+      $alerts[] = 'Saved!';
       setcookie('saved', "0", time() - 3600, "/"); //Delete cookie
     }
 

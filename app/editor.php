@@ -21,10 +21,20 @@
 		$page->load($_SERVER['REQUEST_URI']);
 	}else{
 		//Load local file
+		$alerts[] = 'Edit pending';
 		$page = new Page($file->path);
 		$page->load($file->filename);
 	}
-  ?>
+	?>
+
+
+	<?php if(!empty($alerts)):?>
+		<ul>
+			<li>
+				<?=implode('</li><li>', $alerts);?>
+			</li>
+		</ul>
+	<?php endif; ?>
 
 
   <form action="#" method="post">
