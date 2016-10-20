@@ -39,8 +39,7 @@ class Page
   {
     // Dumps the internal DOM tree back into string
     $str = $this->page;
-
-    // Print it!
+    
     return $this->page;
 
   }
