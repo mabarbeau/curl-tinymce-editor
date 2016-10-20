@@ -41,7 +41,7 @@ class Page
     $str = $this->page;
 
     // Print it!
-    echo $this->page;
+    return $this->page;
 
   }
 
