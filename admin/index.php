@@ -10,8 +10,16 @@
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://flh.fhwa.dot.gov//library/template/style/" />
 	<link rel="stylesheet" type="text/css" media="print" href="https://flh.fhwa.dot.gov//library/template/style/print.css" />
+	<!-- <base href="https://flh.fhwa.dot.gov/" target="_blank" /> -->
 </head>
 
+
 <?php
-  include '../submited/newfile.html';
+include_once('../app/page.php');
+$html = file_get_contents('../submited/index.htm');
+
+$page = new Page('https://flh.fhwa.dot.gov');
+$page->load($_SERVER['REQUEST_URI']);
+$page->push('#side', $html);
+echo $page->output();
 ?>
