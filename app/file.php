@@ -4,22 +4,28 @@
  */
 class File
 {
-  protected $filename;
+  public $filename;
   protected $content;
-  protected $path = '../submited/';
+  public $path = '../submited/';
 
-  function __construct($filename, $content)
+  function __construct($filename, $content = '')
   {
      $this->filename = $filename;
      $this->content = $content;
   }
   public function save()
   {
-    $filepath = $this->path . $this->filename;
+    $filepath = $this->fullpath();
     $file = fopen($filepath, "w") or die("Unable to open file!");
     fwrite($file, $this->content);
     fclose($file);
     return $this;
+  }
+
+  public function fullpath()
+  {
+    $filepath = $this->path . $this->filename;
+    return $filepath;
   }
 
   public function URL_rename()
