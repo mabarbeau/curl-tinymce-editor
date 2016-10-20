@@ -8,8 +8,6 @@ class Page
 {
   protected $domain;
   protected $page;
-  public $html;
-  public $content;
 
   function __construct($domain)
   {
