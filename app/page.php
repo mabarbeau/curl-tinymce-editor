@@ -48,6 +48,28 @@ class Page
 
   }
 
+
+  public function URL_rename($url)
+  {
+    $url = trim($url, '/');
+
+    if(strlen($url) === 0) {
+      $urlPath = 'index.htm';
+
+    }elseif(strpos($url, '.htm') == false) {
+      $urlPath = $url . '/index.htm';
+
+    }else{
+      $urlPath = $url;
+    }
+
+    $name = str_replace("/",".", $urlPath);
+
+    $save = "../submited/" . $name;
+
+    return $save;
+  }
+
 }
 
 ?>
