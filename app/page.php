@@ -20,7 +20,6 @@ class Page
   	$this->page = file_get_html($url);
   }
 
-
   public function pull($id)
   {
     foreach($this->page->find($id) as $e){
@@ -44,28 +43,6 @@ class Page
     // Print it!
     echo $this->page;
 
-  }
-
-
-  public function URL_rename($url)
-  {
-    $url = trim($url, '/');
-
-    if(strlen($url) === 0) {
-      $urlPath = 'index.htm';
-
-    }elseif(strpos($url, '.htm') == false) {
-      $urlPath = $url . '/index.htm';
-
-    }else{
-      $urlPath = $url;
-    }
-
-    $name = str_replace("/",".", $urlPath);
-
-    $save = "../submited/" . $name;
-
-    return $save;
   }
 
 }
