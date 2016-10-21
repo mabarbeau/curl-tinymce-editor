@@ -1,5 +1,8 @@
 <?php
-require_once('../bootstrap/require.php');
+require __DIR__ . '/../vendor/autoload.php';
+use App\Alerts;
+
+$alerts = new Alerts();
 
 switch($_SERVER['REQUEST_METHOD'])
 {

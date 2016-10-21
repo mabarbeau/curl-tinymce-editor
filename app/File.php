@@ -1,7 +1,7 @@
 <?php
-/**
- *
- */
+namespace App;
+
+
 class File
 {
   public $filename;

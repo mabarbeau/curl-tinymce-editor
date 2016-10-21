@@ -1,3 +1,8 @@
+<?php
+use App\File;
+use App\Page;
+?>
+
 <html>
 <head>
 	<script src="/js/tinymce/tinymce.min.js"></script>

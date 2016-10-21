@@ -1,8 +1,8 @@
 <?php
+namespace App;
 
-/**
- *
- */
+require '../vendor/simple_html_dom.php';
+
 class Page
 {
   protected $domain;
