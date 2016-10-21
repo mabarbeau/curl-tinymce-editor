@@ -1,4 +1,9 @@
 <?php
+require_once('../app/page.php');
+require_once('../app/file.php');
+require_once('../vendor/simple_html_dom.php');
+
+
 $alerts = array();
 
 switch($_SERVER['REQUEST_METHOD'])

@@ -1,5 +1,3 @@
-<?php include_once('page.php'); ?>
-<?php include_once('file.php'); ?>
 <html>
 <head>
 	<script src="/js/tinymce/tinymce.min.js"></script>

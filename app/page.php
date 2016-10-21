@@ -1,6 +1,5 @@
 <?php
 
-include_once('../vendor/simple_html_dom.php');
 /**
  *
  */
@@ -39,7 +38,7 @@ class Page
   {
     // Dumps the internal DOM tree back into string
     $str = $this->page;
-    
+
     return $this->page;
 
   }
