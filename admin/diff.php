@@ -1,7 +1,5 @@
 <?php
-require_once('../app/page.php');
-require_once '../vendor/class.Diff.php';
-require_once('../app/file.php');
+require_once('../bootstrap/require.php');
 
 $page = new Page('https://flh.fhwa.dot.gov');
 $page->load('/');

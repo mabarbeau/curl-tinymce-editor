@@ -1,9 +1,5 @@
 <?php
-require_once('../app/page.php');
-require_once('../app/file.php');
-require_once('../app/alerts.php');
-require_once('../vendor/simple_html_dom.php');
-$alerts = new Alerts();
+require_once('../bootstrap/require.php');
 
 switch($_SERVER['REQUEST_METHOD'])
 {
