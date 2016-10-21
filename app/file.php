@@ -28,7 +28,7 @@ class File
     return $filepath;
   }
 
-  public function URL_rename()
+  public function renameUrl()
   {
     $url = trim($this->filename, '/');
 

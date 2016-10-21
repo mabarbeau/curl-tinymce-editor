@@ -12,7 +12,7 @@
 <body>
   <?php
 	$file = new File($_SERVER['REQUEST_URI']);
-	$file->URL_rename();
+	$file->renameUrl();
 	$fullpath = $file->fullpath();
 
 	if(!file_exists($fullpath)){
