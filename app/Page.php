@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-require '../vendor/simple_html_dom.php';
+use voku\helper\HtmlDomParser;
 
 class Page
 {
@@ -16,7 +16,7 @@ class Page
   public function load($path)
   {
     $url = $this->domain . $path;
-  	$this->page = file_get_html($url);
+  	$this->page = HtmlDomParser::file_get_html($url);
   }
 
   public function pull($id)
