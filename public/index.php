@@ -1,10 +1,9 @@
 <?php
 require_once('../app/page.php');
 require_once('../app/file.php');
+require_once('../app/alerts.php');
 require_once('../vendor/simple_html_dom.php');
-
-
-$alerts = array();
+$alerts = new Alerts();
 
 switch($_SERVER['REQUEST_METHOD'])
 {
@@ -17,7 +16,7 @@ switch($_SERVER['REQUEST_METHOD'])
 
   default:
     if(isset($_COOKIE['saved'])){
-      $alerts[] = 'Saved!';
+      $alerts->add('Saved!');
       setcookie('saved', "0", time() - 3600, "/"); //Delete cookie
     }
 

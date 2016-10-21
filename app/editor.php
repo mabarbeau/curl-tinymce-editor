@@ -8,6 +8,7 @@
 
 </head>
 <body>
+
   <?php
 	$file = new File($_SERVER['REQUEST_URI']);
 	$file->renameUrl();
@@ -19,21 +20,13 @@
 		$page->load($_SERVER['REQUEST_URI']);
 	}else{
 		//Load local file
-		$alerts[] = 'Edit pending';
+		$alerts->add('Edit pending');
 		$page = new Page($file->path);
 		$page->load($file->filename);
 	}
+
+	$alerts->outputList();
 	?>
-
-
-	<?php if(!empty($alerts)):?>
-		<ul>
-			<li>
-				<?=implode('</li><li>', $alerts);?>
-			</li>
-		</ul>
-	<?php endif; ?>
-
 
   <form action="#" method="post">
   	<textarea name='code'>
