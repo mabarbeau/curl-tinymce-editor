@@ -9,7 +9,6 @@ $page->load('/');
 $file = new File('test.htm', $page->output());
 $file->save();
 
-// include the Diff class
 echo Diff::toTable(Diff::compareFiles('../submited/index.htm', '../submited/test.htm'));
 
  ?>
