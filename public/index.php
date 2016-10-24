@@ -1,27 +1,56 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
+use Zend\Diactoros\ServerRequestFactory;
 use App\Alerts;
+
+$request = ServerRequestFactory::fromGlobals(
+    $_SERVER,
+    $_GET,
+    $_POST,
+    $_COOKIE,
+    $_FILES
+);
 
 $alerts = new Alerts();
 
-switch($_SERVER['REQUEST_METHOD'])
+require __DIR__ . '/../app/controller.php';
+require __DIR__ . '/../routes/web.php';
+
+
+$matcher = $routerContainer->getMatcher();
+
+$route = $matcher->match($request);
+
+if ($route)
 {
-  case 'POST':
-    include('../app/save.php');
-    header("Location: " . $_SERVER['REQUEST_URI']);
-    setcookie('saved', '1', time() + (5 * 30), "/"); //5 minute cookie
-    exit();
-  break;
+  foreach ($route->attributes as $key => $val) {
+    $request = $request->withAttribute($key, $val);
+  }
+  $callable = $route->handler;
+  $response = $callable($request);
 
-  default:
-    if(isset($_COOKIE['saved'])){
-      $alerts->add('Saved!');
-      setcookie('saved', "0", time() - 3600, "/"); //Delete cookie
+}
+
+else
+{
+    // get the first of the best-available non-matched routes
+    $failedRoute = $matcher->getFailedRoute();
+
+    // which matching rule failed?
+    switch ($failedRoute->failedRule)
+    {
+        case 'Aura\Router\Rule\Allows':
+            echo '405 METHOD NOT ALLOWED';
+            // Send the $failedRoute->allows as 'Allow:'
+            break;
+        case 'Aura\Router\Rule\Accepts':
+            echo '406 NOT ACCEPTABLE';
+            break;
+        default:
+            echo '404 NOT FOUND';
+            break;
+
     }
-
-    include('../app/editor.php');
-
-  break;
 }
 
 ?>
