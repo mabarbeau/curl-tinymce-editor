@@ -33,7 +33,7 @@ div.edit{
 </head>
 <?=$body; ?>
 <div class='edit'>
-  <a href='http://<?=$_SERVER['HTTP_HOST']?>/editor/<?=$card?>'>
+  <a href='http://<?=$_SERVER['HTTP_HOST']?>/edit/<?=$card?>'>
     Edit Page
   </a>
 </div>

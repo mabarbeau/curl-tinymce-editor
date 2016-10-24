@@ -9,7 +9,7 @@ function admin($request)
 }
 
 
-function editor($request)
+function edit($request)
 {
   if(isset($_COOKIE['saved'])){
       echo 'Saved!';
@@ -37,7 +37,7 @@ function save($request)
 }
 
 
-function browser($request)
+function view($request)
 {
   $card = $request->getAttribute('card');
   $card = implode($card, '/');

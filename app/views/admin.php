@@ -17,12 +17,12 @@ $files = preg_grep('/^([^.])/', scandir($dir));
         <?=$full?>
       </td>
       <td>
-        <a href='/editor/<?=$full?>' target="_blank">
+        <a href='/edit/<?=$full?>' target="_blank">
           Edit
         </a>
       </td>
       <td>
-        <a href='/browser/<?=$full?>' target="_blank">
+        <a href='/view/<?=$full?>' target="_blank">
           View
         </a>
       </td>
