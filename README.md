@@ -9,7 +9,7 @@ This appliaction is uses php cURL to scrape a website and load it into a TinyMCE
 ## 1. Install Apache 
 
 ## 2. Clone the repo
-### Needs to be deployed to web root. 
+Needs to be deployed to web root. 
 `git clone https://github.com/mabarbeau/curl-tinymce-editor.git && cd curl-tinymce-editor` 
 
 ## 3. Install Composer
